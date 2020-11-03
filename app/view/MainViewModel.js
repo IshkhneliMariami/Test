@@ -26,6 +26,10 @@ Ext.define('MI.view.MainViewModel', {
           text: 'Fit',
           className: 'MI.view.Fit',
           leaf: true
+        }, {
+          text: 'Accordion',
+          className: 'MI.view.Accordion',
+          leaf: true
         },{
           text: 'Posts-Grid',
           iconCls: 'fa fa-comments',

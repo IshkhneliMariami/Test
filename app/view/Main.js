@@ -10,7 +10,6 @@ Ext.define('MI.view.Main', {
     items: [{
         xtype: 'panel',
         reference: 'header',
-        height: 50,
         bodyPadding: 10,
         region: 'north',
         layout: {
