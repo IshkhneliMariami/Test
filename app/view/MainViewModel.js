@@ -35,7 +35,12 @@ Ext.define('MI.view.MainViewModel', {
           iconCls: 'fa fa-comments',
           className: 'MI.view.posts.PostPanel',
           leaf: true
-        }]
+        }, {
+          text: 'Forms',
+          className: 'MI.view.forms.MainForm',
+          leaf: true
+        }
+        ]
       }
     }
   }
