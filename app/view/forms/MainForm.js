@@ -8,6 +8,14 @@ Ext.define('MI.view.forms.MainForm', {
             }
         }
     },
+    // viewModel: {
+    //     stores: {
+    //         countries: {
+    //             fields: ['id', 'name'],
+    //             data: [{id: 1, name: 'საქართველო'}, {id: 2, name: 'ავსტრია'}]
+    //         }
+    //     }
+    // },
     items: [{
         xtype: 'form',
         border: false,
@@ -32,9 +40,10 @@ Ext.define('MI.view.forms.MainForm', {
             border: false,
             items: [{
                 xtype: 'textfield',
-                name: 'title',
-                fieldLabel: 'სათაური',
-                value: 'სათაური'
+                name: 'password',
+                fieldLabel: 'პაროლი',
+                inputType: 'password'
+
             }, {
                 xtype: 'textfield',
                 name: 'username',
@@ -61,6 +70,22 @@ Ext.define('MI.view.forms.MainForm', {
                     name: 'Year',
                     margin: 0
                 }]
+
+            },{
+                xtype: 'combo',
+                fieldLabel: 'დაბ ქვეყანა',
+                store:{
+                    fields: ['id', 'name'],
+                    data: [{id:1, name: 'საქართველო'}, {id:2, name: 'ავსტრია'}]
+                },
+                typeAhead: true,
+                queryMode: 'local',
+                // editable: false,
+                // multiSelect: true,
+                forceSelection: true,
+                valueField: 'id',
+                displayField: 'name'
+
             }]
         }, {
             xtype: 'fieldset',
@@ -71,6 +96,7 @@ Ext.define('MI.view.forms.MainForm', {
                 fieldLabel: 'სათაური',
                 emptyText: 'Title ...',
                 allowBlank: false,
+                // value: 'სათაური',
                 regex: /^[a-zA-Zა-ჰ0-9 ]+$/
 
             }, {
@@ -85,6 +111,19 @@ Ext.define('MI.view.forms.MainForm', {
                 fieldLabel: 'ასაკი',
                 minValue: 18,
                 maxValue: 65
+            },{
+                xtype: 'tagfield',
+                fieldLabel: 'დაბ ქვეყანა',
+                store:{
+                    fields: ['id', 'name'],
+                    data: [{id:1, name: 'საქართველო'}, {id:2, name: 'ავსტრია'}]
+                },
+                typeAhead: true,
+                queryMode: 'local',
+                forceSelection: true,
+                valueField: 'id',
+                displayField: 'name'
+
             }]
         }, {
             bodyPadding: 10,
