@@ -78,6 +78,8 @@ Ext.define('MI.view.forms.MainForm', {
                     fields: ['id', 'name'],
                     data: [{id:1, name: 'საქართველო'}, {id:2, name: 'ავსტრია'}]
                 },
+                // bind: '{countries}',
+
                 typeAhead: true,
                 queryMode: 'local',
                 // editable: false,

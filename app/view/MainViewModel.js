@@ -39,8 +39,15 @@ Ext.define('MI.view.MainViewModel', {
           text: 'Forms',
           className: 'MI.view.forms.MainForm',
           leaf: true
-        }
-        ]
+        },{
+          text: 'კონვერტაცია',
+          className: 'MI.view.forms.Currency',
+          leaf: true
+        },{
+          text: 'რეგისტრაცია',
+          className: 'MI.view.forms.Registration',
+          leaf: true
+        }]
       }
     }
   }
