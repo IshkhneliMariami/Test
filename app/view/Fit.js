@@ -3,21 +3,8 @@ Ext.define('MI.view.Fit', {
     layout: 'fit',
     autoScroll: true,
     bodyPadding: 10,
-    items: [{
-        xtype: 'component',
-        autoEl: 'h1',
-        html: 'Hello, World!'
-    }, {
-        xtype: 'component',
-        autoEl: 'p',
-        html: 'This is a simple hero unit,' +
-            ' a simple jumbotron-style component for calling extra attention to ' +
-            'featured content or information.'
-    }, {
-        xtype: 'component',
-        autoEl:{
-            tag: 'hr'
-        }
-    }],
 
+    html: '<h1>Hello, World!</h1><br><p>This is a simple unit, a simple jumbotron-style component for calling extra attention to' +
+        ' featured content or information.</p><hr><p>It uses utility classes for typography and spacing to space content out within' +
+        ' the larger container.</p>'
 });
