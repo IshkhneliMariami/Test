@@ -6,7 +6,7 @@ Ext.define('MI.view.MainViewModel', {
   stores: {
     posts: {
       model: 'MI.model.Post',
-      autoLoad: 'true'
+      autoLoad: true
     },
 
 

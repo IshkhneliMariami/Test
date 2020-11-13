@@ -8,14 +8,14 @@ Ext.define('MI.view.forms.MainForm', {
             }
         }
     },
-    // viewModel: {
-    //     stores: {
-    //         countries: {
-    //             fields: ['id', 'name'],
-    //             data: [{id: 1, name: 'საქართველო'}, {id: 2, name: 'ავსტრია'}]
-    //         }
-    //     }
-    // },
+    viewModel: {
+        stores: {
+            countries: {
+                fields: ['id', 'name'],
+                data: [{id: 1, name: 'საქართველო'}, {id: 2, name: 'ავსტრია'}]
+            }
+        }
+    },
     items: [{
         xtype: 'form',
         border: false,
@@ -74,11 +74,13 @@ Ext.define('MI.view.forms.MainForm', {
             },{
                 xtype: 'combo',
                 fieldLabel: 'დაბ ქვეყანა',
-                store:{
-                    fields: ['id', 'name'],
-                    data: [{id:1, name: 'საქართველო'}, {id:2, name: 'ავსტრია'}]
+                // store:{
+                //     fields: ['id', 'name'],
+                //     data: [{id:1, name: 'საქართველო'}, {id:2, name: 'ავსტრია'}]
+                // },
+                bind: {
+                    store: '{countries}'
                 },
-                // bind: '{countries}',
 
                 typeAhead: true,
                 queryMode: 'local',
@@ -116,9 +118,12 @@ Ext.define('MI.view.forms.MainForm', {
             },{
                 xtype: 'tagfield',
                 fieldLabel: 'დაბ ქვეყანა',
-                store:{
-                    fields: ['id', 'name'],
-                    data: [{id:1, name: 'საქართველო'}, {id:2, name: 'ავსტრია'}]
+                // store:{
+                //     fields: ['id', 'name'],
+                //     data: [{id:1, name: 'საქართველო'}, {id:2, name: 'ავსტრია'}]
+                // },
+                bind: {
+                  store: '{countries}'
                 },
                 typeAhead: true,
                 queryMode: 'local',

@@ -1,63 +1,49 @@
 Ext.define('MI.view.forms.Currency', {
     extend: 'Ext.panel.Panel',
+    requires: ['MI.model.ExchangeOperation'],
 
     controller: {
-        reset: function () {
-            const form = this.lookup('form');
-            form.reset()
-
-
-        },
-        convert: function () {
-            const receivableAmount = this.lookup('receivableAmount');
-            const currency = this.lookup('currency');
-            const curr = currency.getValue();
-            const recivable = receivableAmount.getValue();
-            const issuable = curr * recivable;
-            this.getViewModel().set('initValue', issuable);
-
-        },
-        damaged: function () {
-            const currency = this.lookup('currency');
-            const curr = currency.getValue();
-            const damaged = curr * 0.9;
-            this.getViewModel().set('currValue', damaged);
-        }
+        xclass: 'MI.view.forms.FormController'
     },
+
     viewModel: {
         data: {
-            currValue: '3.299',
-            initValue: null
+            currValue: 3.299,
+            initValue: null,
+            currency: 3.299,
 
+        },
+        stores: {
+            exchangeOperations: {
+                model: 'MI.model.ExchangeOperation',
+
+            }
         }
     },
 
     items: [{
         xtype: 'form',
         reference: 'form',
-        // border: false,
+        border: false,
         bodyPadding: 20,
-        layout: {
-            type: 'hbox',
-            align: 'stretch'
-        },
-
+        layout: 'hbox',
+        defaultType: 'fieldset',
         fieldDefaults: {
             anchor: '100%',
             labelAlign: 'top',
         },
-
-        items: [{
-            xtype: 'fieldset',
+        defaults: {
             border: false,
+        },
+        items: [{
             items: [{
-                xtype: 'textfield',
+                xtype: 'numberfield',
                 name: 'receivableAmount',
                 reference: 'receivableAmount',
-                fieldLabel: 'მისაღები თანხა (USD)'
-
+                fieldLabel: 'მისაღები თანხა (USD)',
+                allowBlank: false
             }, {
-                xtype: 'textfield',
+                xtype: 'numberfield',
                 name: 'issuableAmount',
                 reference: 'issuableAmount',
                 fieldLabel: 'გასაცემი თანხა (GEL)',
@@ -67,17 +53,16 @@ Ext.define('MI.view.forms.Currency', {
                 editable: false,
             }]
         }, {
-            xtype: 'fieldset',
-            border: false,
             items: [{
-                xtype: 'textfield',
+                xtype: 'numberfield',
                 name: 'currency',
                 reference: 'currency',
                 fieldLabel: 'კურსი',
                 bind: {
-                    value: '{currValue}',
+                    value: '{currency}',
                     readOnly: '{!specialCurrency.checked}'
                 },
+                decimalPrecision: 4
 
 
             }, {
@@ -93,35 +78,46 @@ Ext.define('MI.view.forms.Currency', {
                 listeners: {
                     change: 'damaged',
                     single: true,
+                },
+                bind: {
+
+                    disabled: '{specialCurrency.checked}'
                 }
             }]
-        }, {
-            border: false,
-            items: [{
+        },
+            {
                 border: false,
-                layout: {
-                    type: 'vbox',
-                    align: 'stretch',
-                },
-                defaults: {
-                    // bodyPadding: 10,
-                    // padding: 1,
-                    margin: '25 0 20 0',
-
-                },
                 items: [{
-                    xtype: 'button',
-                    text: 'კონვერტაცია',
-                    handler: 'convert'
+                    border: false,
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch',
+                    },
+                    defaults: {
+                        // bodyPadding: 10,
+                        // padding: 1,
+                        margin: '25 0 20 0',
 
-                }, {
-                    xtype: 'button',
-                    text: 'გასუფთავება',
-                    handler: 'reset',
-                    margin: '0'
+                    },
+                    items: [{
+                        xtype: 'button',
+                        text: 'კონვერტაცია',
+                        handler: 'convert'
+
+                    }, {
+                        xtype: 'button',
+                        text: 'გასუფთავება',
+                        handler: 'reset',
+                        margin: '0'
+                    }]
                 }]
             }]
-        }]
+    }, {
+        items: [{
+            xclass: 'MI.view.forms.FormGrid',
+            flex: 1,
+            border: false
+        }],
     }]
 
 })
