@@ -45,7 +45,7 @@ Ext.define('MI.view.MainViewModel', {
           leaf: true
         },{
           text: 'რეგისტრაცია',
-          className: 'MI.view.forms.Registration',
+          className: 'MI.view.registration.Customers',
           leaf: true
         }]
       }
