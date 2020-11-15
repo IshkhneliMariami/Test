@@ -1,23 +1,41 @@
-xt.define('MI.view.registration.CustomerGrid', {
+Ext.define('MI.view.registration.CustomerGrid', {
     extend: 'Ext.grid.Panel',
-    //bind: '{}',
-
+    bind: {
+        store: '{customers}'
+    },
 
     columns: [{
+        text: 'ID',
+        dataIndex: 'id',
+
+    }, {
         text: 'კლიენტის ტიპი',
-        dataIndex: 'type'
+        dataIndex: 'type',
+        flex:1
 
     }, {
         text: 'დასახელება',
-        flex: 1,
-        dataIndex: 'name'
+        dataIndex: 'name',
+        flex:1
+
+    }, {
+        text: 'საიდ. ნომერი',
+        dataIndex: 'idNumber',
+        flex:1
+
     }, {
         text: 'რეგიონი',
-        flex: 1,
-        dataIndex: 'region'
-    },{
+        dataIndex: 'region',
+        flex:1
+
+    }, {
         text: 'რაიონი',
-        flex: 1,
-        dataIndex: 'district'
+        dataIndex: 'district',
+        flex:1
+
+    }, {
+        text: 'დაბადების თარიღი',
+        dataIndex: 'birthDate',
+        flex:1
     }]
-});
+})
