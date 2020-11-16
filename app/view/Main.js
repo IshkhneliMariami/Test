@@ -50,10 +50,10 @@ Ext.define('MI.view.Main', {
         reference: 'mainTabPanel',
         region: 'center',
         items: []
-    }, {
-        region: 'south',
-        html: 'footer',
-        bodyPadding: 10
+    // }, {
+    //     region: 'south',
+    //     html: 'footer',
+    //     bodyPadding: 10
     }]
 
 });

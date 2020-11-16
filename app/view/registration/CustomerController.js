@@ -24,6 +24,7 @@ Ext.define('MI.view.registration.CustomerController', {
                 success: function () {
                     Ext.Msg.alert('სტატუსი', 'მონაცემები წარმატებით შეინახა');
                     store.load();
+                    form.reset();
                 },
                 failure: function () {
                     Ext.Msg.alert('სტატუსი', 'შეცდომა');
@@ -31,5 +32,22 @@ Ext.define('MI.view.registration.CustomerController', {
                 }
             })
         }
+    },
+
+    customerTypeRenderer: function (id) {
+        const customerType = this.getViewModel().getStore('customerTypes').getById(id);
+        return customerType.get('type');
+    },
+    regionNameRenderer: function (id) {
+        const regionName = this.getViewModel().getStore('regions').getById(id);
+        return regionName.get('name')
+    },
+    districtNameRenderer: function (id) {
+        const districtName = this.getViewModel().getStore('districts').getById(id);
+        return districtName.get('name')
+    },
+    orgTypeRenderer: function (id) {
+        const orgTypeName = this.getViewModel().getStore('orgTypes').getById(id);
+        return orgTypeName.get('name')
     }
 })
