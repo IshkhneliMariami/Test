@@ -11,13 +11,12 @@ Ext.define('MI.view.forms.FormController', {
 
     convert: function () {
         const form = this.lookup('form');
-        const values = form.getForm().getValues();
-        values.issuableAmount = values.receivableAmount * values.currency;
-        this.getViewModel().set('initValue', values.issuableAmount);
-
         if (!form.isValid()) {
             Ext.Msg.alert('შეცდომა', 'ფორმა არ არის ვალიდური');
         } else {
+            const values = form.getForm().getValues();
+            values.issuableAmount = values.receivableAmount * values.currency;
+            this.getViewModel().set('initValue', values.issuableAmount);
             const record = Ext.create('MI.model.ExchangeOperation', values);
             const store = this.getViewModel().getStore('exchangeOperations');
             store.add(record);
