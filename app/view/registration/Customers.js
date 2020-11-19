@@ -21,6 +21,7 @@ Ext.define('MI.view.registration.Customers', {
         },
         defaults: {
             border: false,
+            flex: 1
         },
         items: [{
             items: [{
@@ -97,6 +98,7 @@ Ext.define('MI.view.registration.Customers', {
                 reference: 'privateNumber',
                 name: 'privateNumber',
                 allowBlank: false,
+                minLength: 11,
                 maxLength: 11,
                 fieldLabel: 'პირადი ნომერი',
                 bind: {
@@ -146,7 +148,8 @@ Ext.define('MI.view.registration.Customers', {
                 displayField: 'name',
                 allowBlank: false,
                 bind: {
-                    store: '{districts}'
+                    store: '{districts}',
+                    readOnly: '{!region.selection}'
                 }
             }]
         }, {
