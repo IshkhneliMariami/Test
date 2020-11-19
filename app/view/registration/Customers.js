@@ -48,11 +48,13 @@ Ext.define('MI.view.registration.Customers', {
                 reference: 'firstName',
                 name: 'firstName',
                 fieldLabel: 'სახელი',
+                allowBlank: false,
+                regex: /^[a-zA-Zა-ჰ]+$/,
                 bind: {
                     hidden: '{!individualIsActive}',
                     disabled: '{!individualIsActive}'
                 },
-                allowBlank: false,
+
 
             }, {
                 xtype: 'combo',
@@ -74,6 +76,7 @@ Ext.define('MI.view.registration.Customers', {
                 reference: 'lastName',
                 name: 'lastName',
                 fieldLabel: 'გვარი',
+                regex: /^[a-zA-Zა-ჰ]+$/,
                 bind: {
                     hidden: '{!individualIsActive}',
                     disabled: '{!individualIsActive}'
@@ -85,6 +88,7 @@ Ext.define('MI.view.registration.Customers', {
                 reference: 'name',
                 name: 'name',
                 fieldLabel: 'დასახელება',
+                regex: /^[a-zA-Zა-ჰ]+$/,
                 allowBlank: false,
                 bind: {
                     hidden: '{individualIsActive}',

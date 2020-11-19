@@ -15,20 +15,19 @@ Ext.define('MI.model.Customer', {
     }, {
         name: 'name',
         type: 'string'
+    }, {
+        name: 'orgType',
+        type: 'number'
+    }, {
+        name: 'privateNumber',
+        type: 'string'
+    }, {
+        name: 'idNumber',
+        type: 'string'
+    }, {
+        name: 'region',
+        type: 'number'
     },
-        {
-            name: 'orgType',
-            type: 'number'
-        }, {
-            name: 'privateNumber',
-            type: 'string'
-        }, {
-            name: 'idNumber',
-            type: 'string'
-        }, {
-            name: 'region',
-            type: 'number'
-        },
         {
             name: 'district',
             type: 'number'
@@ -64,7 +63,7 @@ Ext.define('MI.model.Customer', {
         type: 'rest',
     },
     writer: {
-        writeAllFields: true,
+        // writeAllFields: true,
         writeRecordId: false,
     }
 })
