@@ -4,6 +4,7 @@ Ext.define('MI.view.registration.CustomerGrid', {
         store: '{customers}'
     },
 
+
     columns: [{
         text: 'ID',
         dataIndex: 'id',

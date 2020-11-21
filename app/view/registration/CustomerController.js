@@ -18,8 +18,8 @@ Ext.define('MI.view.registration.CustomerController', {
             const values = form.getForm().getValues();
             const store = this.getViewModel().getStore('customers');
             const newCustomer = Ext.create('MI.model.Customer', values);
-            store.removeAll();
-            store.sync();
+            // store.removeAll();
+            // store.sync();
             newCustomer.save({
                 success: function () {
                     Ext.Msg.alert('სტატუსი', 'მონაცემები წარმატებით შეინახა');
@@ -32,6 +32,10 @@ Ext.define('MI.view.registration.CustomerController', {
                 }
             })
         }
+    },
+    reset: function () {
+        const form = this.lookup('form');
+        form.getForm().reset();
     },
 
     customerTypeRenderer: function (id) {

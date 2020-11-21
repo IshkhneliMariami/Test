@@ -8,6 +8,11 @@ Ext.define('MI.view.registration.Customers', {
         xclass: 'MI.view.registration.CustomerViewModel'
     },
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
+
     items: [{
         xtype: 'form',
         reference: 'form',
@@ -77,11 +82,12 @@ Ext.define('MI.view.registration.Customers', {
                 name: 'lastName',
                 fieldLabel: 'გვარი',
                 regex: /^[a-zA-Zა-ჰ]+$/,
+                allowBlank: false,
                 bind: {
                     hidden: '{!individualIsActive}',
                     disabled: '{!individualIsActive}'
                 },
-                allowBlank: false,
+
 
             }, {
                 xtype: 'textfield',
@@ -98,12 +104,13 @@ Ext.define('MI.view.registration.Customers', {
             },]
         }, {
             items: [{
-                xtype: 'numberfield',
+                xtype: 'textfield',
                 reference: 'privateNumber',
                 name: 'privateNumber',
                 allowBlank: false,
                 minLength: 11,
                 maxLength: 11,
+                regex: /^[0-9]+$/,
                 fieldLabel: 'პირადი ნომერი',
                 bind: {
                     hidden: '{!individualIsActive}',
@@ -111,10 +118,11 @@ Ext.define('MI.view.registration.Customers', {
                 }
 
             }, {
-                xtype: 'numberfield',
+                xtype: 'textfield',
                 reference: 'idNumber',
                 name: 'idNumber',
                 allowBlank: false,
+                regex: /^[0-9]+$/,
                 maxLength: 9,
                 fieldLabel: 'საიდენტიფიკაციო ნომერი',
                 bind: {
@@ -157,20 +165,28 @@ Ext.define('MI.view.registration.Customers', {
                 }
             }]
         }, {
-            items: [{
-                xtype: 'button',
-                text: 'შენახვა',
-                handler: 'save',
-                scale: 'medium',
-                margin: '25 0 0 0'
+            // items: [{
+            //     xtype: 'button',
+            //     text: 'შენახვა',
+            //     handler: 'save',
+            //     scale: 'medium',
+            //     margin: '25 0 0 0'
+            //
+            // }],
 
-            }]
-        }]
+        }], buttons: [{
+            text: 'გასუფთავება',
+            handler: 'reset',
+            scale: 'medium'
+        },{
+            text: 'შენახვა',
+            handler: 'save',
+            scale: 'medium'
+        },]
 
     }, {
-        xtype: 'grid',
+        // xtype: 'grid',
         xclass: 'MI.view.registration.CustomerGrid',
-        // autoLoad: true,
         flex: 1,
 
 
