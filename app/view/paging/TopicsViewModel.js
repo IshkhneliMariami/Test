@@ -7,7 +7,7 @@ Ext.define('MI.view.paging.TopicsViewModel', {
             model: 'MI.model.Topic',
         }
     },
-    data: {
-        expanded: true
-    }
+    // data: {
+    //     expanded: true
+    // }
 })

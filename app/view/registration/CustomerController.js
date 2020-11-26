@@ -53,5 +53,24 @@ Ext.define('MI.view.registration.CustomerController', {
     orgTypeRenderer: function (id) {
         const orgTypeName = this.getViewModel().getStore('orgTypes').getById(id);
         return orgTypeName.get('name')
-    }
+    },
+
+    addRelation: function () {
+        const relations = this.getViewModel().getStore('relations');
+        relations.add({})
+        const relationsGrid = this.lookup('relationsGrid');
+        relationsGrid.editingPlugin.startEdit(relations.getCount() - 1)
+
+    },
+    relationTypeRenderer: function (relationTypeId) {
+        if (!relationTypeId) return relationTypeId;
+
+        const relationTypes = this.getViewModel().getStore('relationTypes');
+        const relation = relationTypes.getById(relationTypeId);
+
+        if (!relation) return relationTypeId;
+
+        return relation.get('name');
+    },
+
 })
